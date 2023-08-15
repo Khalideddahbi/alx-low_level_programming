@@ -6,7 +6,7 @@
  *
  * Description: the funtion if
  *
- * Return 0 (success)
+ * Return: always 0 (success)
  */
 int main(void)
 {
@@ -22,7 +22,7 @@ int main(void)
 	{
 		printf("%d is zero\n", n);
 	}
-	else(n < 0);
+	else
 	{
 		printf("%d is negative\n", n);
 	}
