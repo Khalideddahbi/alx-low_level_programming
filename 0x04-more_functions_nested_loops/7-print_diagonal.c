@@ -3,7 +3,7 @@
 /**
  * print_diagonal - entry point
  *
- * @n: lenght of diagonal
+ * @n: lenght of diagonal till n
  *
  */
 
