@@ -4,7 +4,7 @@
  * _print_rev_recursion - entry
  *
  * @s: string
- * 
+ *
  * Return: reverse
  */
 
