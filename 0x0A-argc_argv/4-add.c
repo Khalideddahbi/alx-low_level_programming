@@ -1,5 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
+/**
+ * is_positive_integer - entr
+ * @str: check
+ * Return: 0 or 1
+ */
+int is_positive_integer(const char *str)
+{
+	if (*str == '\0')
+	{
+		return (0);
+	}
+	while (*str)
+	{
+		if (*str < '0' || *str > '9')
+		{
+			return (0);
+		}
+		str++;
+	}
+	return (1);
+}
 
 /**
  * main - entry
@@ -11,20 +32,25 @@
  */
 int main(int argc, char *argv[])
 {
-	int s = 0;
-	char *c;
+	int sum = 0;
+	int num;
+	int i;
 
-	while (--argc)
+	if (argc == 1)
 	{
-		for (c = argv[argc]; *c; c++)
-		{
-			if (*c < '0' || *c > '9')
-			{
-				return (printf("Error\n"), 1);
-			}
-			s = s + atoi(argv[argc]);
-		}
+		printf("0\n");
+		return (0);
 	}
-	printf("%d\n", s);
+	for (i = 1; i < argc; i++)
+	{
+		if (!is_positive_integer(argv[i]))
+		{
+			printf("Error\n");
+			return (1);
+		}
+		num = atoi(argv[i]);
+		sum += num;
+	}
+	printf("%d\n", sum);
 	return (0);
 }
