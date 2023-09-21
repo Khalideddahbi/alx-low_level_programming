@@ -1,44 +1,38 @@
 #include "lists.h"
+#include <stdio.h>
 
 /**
- * print_number - Prints an int
- * @n: The integer
- * Return: void
- */
-void print_number(size_t n)
-{
-	if (n / 10)
-		print_number(n / 10);
-	_putchar((n % 10) + '0');
-}
-/**
- * print_list - Prints elements
- * @h: the head
+ * _strlen - length of str
+ * @s: the str
  *
- * Return: nodes
+ * Return: length of string
+ */
+int _strlen(char *s)
+{
+	int i = 0;
+
+	if (!s)
+		return (0);
+	while (*s++)
+		i++;
+	return (i);
+}
+
+/**
+ * print_list - Entry pt
+ * @h: pointer
+ *
+ * Return: size of list
  */
 size_t print_list(const list_t *h)
 {
-	size_t count = 0;
-	
-	while (h != NULL)
+	size_t i = 0;
+
+	while (h)
 	{
-		if (h->str == NULL)
-			_putchar('['), _putchar('0'), _putchar(']'), _putchar(' '), _putchar('('), _putchar('n'), _putchar('i'), _putchar('l'), _putchar(')'), _putchar('\n');
-		else
-		{
-			size_t len = h->len;
-			char *str = h->str;
-			while (*str)
-				_putchar(*str++);
-			_putchar('[');
-			print_number(len);
-			_putchar(']');
-			_putchar(' ');
-			_putchar('\n');
-		}
-		count++;
+		printf("[%d] %s\n", _strlen(h->str), h->str ? h->str : "(nil)");
 		h = h->next;
+		i++;
 	}
-	return (count);
+	return (i);
 }
